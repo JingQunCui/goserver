@@ -1,26 +1,25 @@
 main location
-"C:\Users\topsp\Documents\actual ML\test"
-'/mnt/c/Users/topsp/Documents/actual ML'
-
-idk how to use huggingface-cli login, but I can do it if I first go to 
-C:\Users\topsp\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts
-
-testing in test.py, but cannot seem to find the file even though I see it in the huggingface repository? not sure as to why this is happening...
+'/mnt/c/Users/Administrator/Documents/finalProject'
 
 when actually doing python 
 run.py --config configs/mi.json
-, it seems that it is looking for the MIMIR_CACHE_PATH environment variable (and will probably need MIMIR_DATA_SOURCE as well), not quite sure what to do with these yet
-I don't think they are needed if I load from huggingface in the mi.json config file, but it asks for it even though its true? not sure.
-
 
 for ubuntu, set environment variables with
-export MIMIR_CACHE_PATH='C:\Users\topsp\Documents\help me\data'
+export MIMIR_CACHE_PATH='/mnt/c/Users/Administrator/Documents/finalProject/cache'
+export MIMIR_DATA_SOURCE='/mnt/c/Users/Administrator/Documents/finalProject/data'
 
 
 
+texts (around line 111 in run.py) actually contains the dataset in batches I think
 
-I know that I'm supposed to use the scripts to run tests, but am not sure how
 
-How does this work, does it query an external model or train one locally? I can't seem to figure it out
+FOR TEXTCOMPLEXITY
 
-What do I do with MIMIR_DATA_SOURCE? how is it different to MIMIR_CACHE_PATH?
+go to textcomplexity folder
+to analyze, files must be in connl-u format
+    to do this, put the input document file in the input folder
+    go to the utils folder and run
+    python3 run_stanza.py ../input/arxiv_ngram_7_0.2.jsonl -l english -o ../output
+    this will create the conll-u file in the output folder
+now just run the following line with the conll-u file to print info about the text 
+txtcomplexity --input-format conllu arxiv_ngram_7_0.2.jsonl.conllu

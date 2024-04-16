@@ -1,0 +1,3 @@
+[submodule "textcomplexity"]
+	path = textcomplexity
+	url = https://github.com/tsproisl/textcomplexity.git

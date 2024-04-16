@@ -78,6 +78,9 @@ def get_mia_scores(
     n_samples: int = None,
     batch_size: int = 50,
 ):
+    
+
+    #print(f'\n\n\n\n\nATTACKERS DICT: {attackers_dict}\n\n\n\n')
     # Fix randomness
     fix_seed(config.random_seed)
 
@@ -104,6 +107,10 @@ def get_mia_scores(
     # TODO: Batch-size isn't really "batching" data - change later
     for batch in tqdm(range(math.ceil(n_samples / batch_size)), desc=f"Computing criterion"):
         texts = data["records"][batch * batch_size : (batch + 1) * batch_size]
+
+        
+
+        #print(f'\n\n\nTEXTS: {texts}\n\n\n')
 
         # For each entry in batch
         for idx in range(len(texts)):
