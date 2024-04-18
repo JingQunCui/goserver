@@ -48,6 +48,8 @@ def load_cached(cache_dir,
         Read from cache if available. Used for certain pile sources and xsum
         to ensure fairness in comparison across attacks.runs.
     """
+    print(f'\nload from hf: {load_from_hf}\n')
+    load_from_hf = False
     if load_from_hf:
         print("Loading from HuggingFace!")
         data_split = data_split.replace("train", "member")

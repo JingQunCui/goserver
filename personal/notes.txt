@@ -9,10 +9,18 @@ export MIMIR_CACHE_PATH='/mnt/c/Users/Administrator/Documents/finalProject/cache
 export MIMIR_DATA_SOURCE='/mnt/c/Users/Administrator/Documents/finalProject/data'
 
 
-
-texts (around line 111 in run.py) actually contains the dataset in batches I think
-
-
+run.py notes
+- texts (around line 111 in run.py) actually contains the dataset in batches I think
+- results is a list of dictionaries which contain a string (sample) and the associated scores it gets for each test
+- I'm getting close....
+- predictions is a dictionary that contains lists of scores (loss, zlib, etc) associated with particular attacks
+    - Now, I need to figure out what is done with those scores to determine the success of the attacks (do they sort like the og paper?)
+    - samples is the associated samples I think
+    - it splits member/nonmember by the train/test files in the cache
+- I feel like I'm less close   
+- Not sure exactly how member/non-member is used in run
+- data metrics are done by using member/nonmember scores somehow, with ROC curve....
+- IDK HOW TO LOAD CUSTOM DATASETS THE README SAYS USE LOAD IN DATA UTILS BUT HOW
 FOR TEXTCOMPLEXITY
 
 go to textcomplexity folder

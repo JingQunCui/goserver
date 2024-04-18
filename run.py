@@ -10,6 +10,7 @@ import json
 import math
 from collections import defaultdict
 from typing import List, Dict
+import time
 
 from simple_parsing import ArgumentParser
 from pathlib import Path
@@ -123,9 +124,12 @@ def get_mia_scores(
 
             # This will be a list of integers if pretokenized
             sample_information["sample"] = sample
+            #print(f'\n\n\nSAMPLE: {sample}\n\n\n')
             if config.pretokenized:
                 detokenized_sample = [target_model.tokenizer.decode(s) for s in sample]
                 sample_information["detokenized"] = detokenized_sample
+
+
 
             # For each substring
             neighbors_within = {n_perturbation: [] for n_perturbation in n_perturbation_list}
@@ -214,6 +218,7 @@ def get_mia_scores(
 
             # Add the scores we collected for each sample for each
             # attack into to respective list for its classification
+            #print(f'\n\n\nSAMPLE INFORMATION: {sample_information}\n\n\n')
             results.append(sample_information)
 
     if neigh_config and neigh_config.dump_cache:
@@ -263,11 +268,17 @@ def get_mia_scores(
     predictions = defaultdict(lambda: [])
     for r in results:
         samples.append(r["sample"])
+        #print(f'\n\n\nr: {r}\n\n\n')
         for attack, scores in r.items():
+            #print(f'Attack:{attack}\n Scores:{scores}\n\n\n')
+            #time.sleep(2)
             if attack != "sample" and attack != "detokenized":
                 # TODO: Is there a reason for the np.min here?
                 predictions[attack].append(np.min(scores))
 
+
+    #print(f'\n\n\nPREDICTIONS: {predictions}\n\n\n')
+    #print(f'\n\n\nSAMPLES: {samples}\n\n\n')
     return predictions, samples
 
 

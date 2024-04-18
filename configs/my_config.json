@@ -1,15 +1,16 @@
 {
-    "experiment_name": "test_w_my_config",
+    "experiment_name": "testing",
     "base_model": "EleutherAI/pythia-1.4b",
-    "dataset_member": "the_pile",
-    "dataset_nonmember": "the_pile",
+    "dataset_member": "test",
+    "dataset_nonmember": "test",
     "min_words": 100,
     "max_words": 200,
     "max_tokens": 512,
-    "max_data": 100000,
+    "max_data": 1000,
     "output_name": "unified_mia",
-    "specific_source": "Github_ngram_7_<0.2",
-    "n_samples": 268,
+    "dataset_key": "text",
+    "specific_source": "test",
+    "n_samples": 1000,
     "blackbox_attacks": ["loss", "zlib"],
     "ref_config": {
         "models": [
@@ -32,6 +33,5 @@
         "device": "cuda:0",
         "device_aux": "cuda:0"
     },
-    "dump_cache": false,
-    "load_from_hf": true
+    "dump_cache": false
 }
