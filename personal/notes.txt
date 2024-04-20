@@ -5,9 +5,20 @@ when actually doing python
 run.py --config configs/mi.json
 
 for ubuntu, set environment variables with
-export MIMIR_CACHE_PATH='/mnt/c/Users/Administrator/Documents/finalProject/cache'
+export MIMIR_CACHE_PATH='/mnt/c/Users/Administrator/Documents/finalProject/cache/mimir'
 export MIMIR_DATA_SOURCE='/mnt/c/Users/Administrator/Documents/finalProject/data'
+MOVE CACHE AND DATA FOLDERS INTO MAIN MIMIR FOLDER LATER (add to repo)
 
+FOR TEXTCOMPLEXITY
+
+go to textcomplexity folder
+to analyze, files must be in connl-u format
+    to do this, put the input document file in the input folder
+    go to the utils folder and run
+    python3 run_stanza.py ../input/arxiv_ngram_7_0.2.jsonl -l english -o ../output
+    this will create the conll-u file in the output folder
+now just run the following line with the conll-u file to print info about the text 
+txtcomplexity --input-format conllu arxiv_ngram_7_0.2.jsonl.conllu
 
 run.py notes
 - texts (around line 111 in run.py) actually contains the dataset in batches I think
@@ -21,13 +32,29 @@ run.py notes
 - Not sure exactly how member/non-member is used in run
 - data metrics are done by using member/nonmember scores somehow, with ROC curve....
 - IDK HOW TO LOAD CUSTOM DATASETS THE README SAYS USE LOAD IN DATA UTILS BUT HOW
-FOR TEXTCOMPLEXITY
 
-go to textcomplexity folder
-to analyze, files must be in connl-u format
-    to do this, put the input document file in the input folder
-    go to the utils folder and run
-    python3 run_stanza.py ../input/arxiv_ngram_7_0.2.jsonl -l english -o ../output
-    this will create the conll-u file in the output folder
-now just run the following line with the conll-u file to print info about the text 
-txtcomplexity --input-format conllu arxiv_ngram_7_0.2.jsonl.conllu
+- OK I THINK I GOT IT TO TAKE IN CUSTOM DATASETS
+    - it takes in something from test as nonmember and from train as member
+
+- in attack_utils, I think I can remove the nonmember shit so it just looks at if it was classified as a 
+  member or not - calculates ROC and shit afterwards
+    - maybe not.... gives an error if I don't include nonmember data
+- I think how it works is that it assigns a class of 0 to non members and 1 to members, 
+  then the roc_curve function to get the true positive rate, false positive rate, and a threshold
+  which they are based on
+    - main thing now is to figure out the threshold because I think thats actually what decides the classification
+        - if the score of a sample is high enough its classified as a member?
+
+MAIN QUESTIONS
+- What is the threshold in the roc_curve sklearn function
+- Are there other metrics that would be helpful? Can I even use them due to how they implement the classifier using roc_curve?
+- How to determine train and test data - can I use those external libraries
+    - I have gotten it to work for my own datasets
+    - Don't know what was included in training data, so hard to figure out
+    - If I cannot figure this out, may have to use given train and test data (they are guaranteed to be members/nonmembers)
+    - The data has also been filtered to have low ngram overlap (7 or 13) - this would lead to them being memorized better
+      compared to a non-filtered dataset
+
+
+using other the pile subsets, look at scores and determine which to call members and nonmembers
+use these in tests

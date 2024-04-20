@@ -87,6 +87,20 @@ def get_roc_metrics(
     # expectes label '0' data to have lower values to get assigned that label
     # which is true for our attacks (lower loss for members, e.g.)
     total_labels = [1] * len(preds_member_) + [0] * len(preds_nonmember_)
+
+    #print(f'preds_member: {preds_member}\n\n\n\n\n\n')
+    #print(f'preds_nonmember: {preds_nonmember}\n\n\n\n\n\n')
+
+    #import time
+    #time.sleep(10)
+
+    #MY STUFF
+    #total_preds = preds_member_
+    #total_preds = np.array(total_preds) * -1
+    #total_labels = [1] * len(preds_member_)
+
+
+
     fpr, tpr, thresholds = roc_curve(total_labels, total_preds)
 
     roc_auc = auc(fpr, tpr)

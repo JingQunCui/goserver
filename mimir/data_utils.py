@@ -21,8 +21,8 @@ class Data:
         self.config = config
         self.name = name
         self.presampled = presampled
-        print(f'\n\n\nKEY: {config.dataset_key}\n\n\n')
-        print(f'\n\n\nMAPPING: {self.name_key_mapping}\n\n\n')
+        #print(f'\n\n\nKEY: {config.dataset_key}\n\n\n')
+        #print(f'\n\n\nMAPPING: {self.name_key_mapping}\n\n\n')
         self.key = (
             config.dataset_key
             if config.dataset_key
