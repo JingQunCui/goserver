@@ -95,7 +95,7 @@ def load_data(file_path):
         Load data from a given filepath (.jsonl)
     """
     with open(file_path, 'r') as f:
-        data = [json.loads(line) for line in f.readlines()]
+        data = [json.loads(line, strict = False) for line in f.readlines()]
     return data
 
 

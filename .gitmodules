@@ -1,3 +1,6 @@
 [submodule "textcomplexity"]
 	path = textcomplexity
 	url = https://github.com/tsproisl/textcomplexity.git
+[submodule "The-Pile-FreeLaw"]
+	path = The-Pile-FreeLaw
+	url = https://github.com/thoppe/The-Pile-FreeLaw.git

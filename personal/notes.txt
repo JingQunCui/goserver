@@ -20,7 +20,10 @@ to analyze, files must be in connl-u format
 now just run the following line with the conll-u file to print info about the text 
 txtcomplexity --input-format conllu arxiv_ngram_7_0.2.jsonl.conllu
 
-run.py notes
+
+
+
+general notes
 - texts (around line 111 in run.py) actually contains the dataset in batches I think
 - results is a list of dictionaries which contain a string (sample) and the associated scores it gets for each test
 - I'm getting close....
@@ -45,6 +48,14 @@ run.py notes
     - main thing now is to figure out the threshold because I think thats actually what decides the classification
         - if the score of a sample is high enough its classified as a member?
 
+4/21/2024
+- gotta do something weird for data lol - don't know the member and nonmember data they use, so need to approximate
+    - get some subset of one of the datasets I want to use
+    - run them through pythia - get associated scores
+    - take high/low scores as member/nonmember data
+- This is kinda sketchy because sometimes it gives the full curve for ROC AUC
+- Actually wait I can just use separate attacks
+
 MAIN QUESTIONS
 - What is the threshold in the roc_curve sklearn function
 - Are there other metrics that would be helpful? Can I even use them due to how they implement the classifier using roc_curve?
@@ -58,3 +69,36 @@ MAIN QUESTIONS
 
 using other the pile subsets, look at scores and determine which to call members and nonmembers
 use these in tests
+
+
+
+
+
+
+
+results notes
+
+GITHUB ROC AUC VALUES - github_ngram_13_0.8
+- LOSS: 0.698
+- MIN-K: 0.699
+- REFERENCE: 0.521
+
+EMAIL ROC AUC VALUES - enron_member and enron_nonmember
+- LOSS: 0.558
+- MIN-K: 0.565
+- REFERENCE: 0.553
+
+ARXIV ROC AUC VALUES - arxiv_ngram_13_0.8
+- LOSS: 0.515
+- MIN-K: 0.514
+- REFERENCE: 0.517
+
+MATH ROC AUC VALUES - dm_mathematics_ngram_13_0.8
+- LOSS: 0.485
+- MIN-K: 0.493
+- REFERENCE: 0.487
+
+HACKERNEWS ROC AUC VALUES - hackernews_ngram_13_0.8
+- LOSS: 0.505
+- MIN-K: 0.512
+- REFERENCE: 0.531

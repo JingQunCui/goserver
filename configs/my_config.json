@@ -1,8 +1,8 @@
 {
-    "experiment_name": "testing_subset",
+    "experiment_name": "hackernews_test",
     "base_model": "EleutherAI/pythia-1.4b",
-    "dataset_member": "the_pile_test",
-    "dataset_nonmember": "the_pile_test",
+    "dataset_member": "hackernews_ngram_13_0.8",
+    "dataset_nonmember": "hackernews_ngram_13_0.8",
     "min_words": 100,
     "max_words": 200,
     "max_tokens": 512,
@@ -11,14 +11,14 @@
     "dataset_key": "text",
     "specific_source": null,
     "n_samples": 1000,
-    "blackbox_attacks": ["loss", "zlib", "min_k"],
+    "blackbox_attacks": ["loss", "min_k", "ref"],
     "ref_config": {
         "models": [
             "EleutherAI/gpt-neo-125m"
         ]
     },
     "neighborhood_config": {
-        "model": "EleutherAI/pythia-1.4b",
+        "model": "bert",
         "n_perturbation_list": [
             25
         ],
