@@ -13,6 +13,8 @@ FOR TEXTCOMPLEXITY
 
 go to textcomplexity folder
 to analyze, files must be in connl-u format
+    MAY NEED TO DO iconv -f utf-8 -t utf-8 -c test_out_dense.txt -o NEW_FILE
+    THIS REMOVES INVALID utf-8 CHARACTERS
     to do this, put the input document file in the input folder
     go to the utils folder and run
     python3 run_stanza.py ../input/arxiv_ngram_7_0.2.jsonl -l english -o ../output
@@ -71,7 +73,15 @@ using other the pile subsets, look at scores and determine which to call members
 use these in tests
 
 
+gutenberg process: 
+- get data
+- use one of the conversion programs
+- get output, use iconv to remove the invalid characters
+- use jsonl converter to convert to jsonl
+- use splitter to split into 2 subsets to generate stats for
 
+DENSE = HIGH TYPE TOKEN
+SPARSE = LOW TYPE TOKEN
 
 
 
@@ -102,3 +112,23 @@ HACKERNEWS ROC AUC VALUES - hackernews_ngram_13_0.8
 - LOSS: 0.505
 - MIN-K: 0.512
 - REFERENCE: 0.531
+
+HIGH TYPE TOKEN ROC AUC VALUES - dense_member and dense_nonmember
+- LOSS: 0.720
+- MIN-K: 0.619
+- REFERENCE: 0.491
+
+HIGH TYPE TOKEN ROC AUC VALUES - sparse_member and sparse_nonmember
+- LOSS: 0.599
+- MIN-K: 0.617
+- REFERENCE: 0.656
+
+LONG SENTENCE ROC AUC VALUES - long_member and long_nonmember
+- LOSS: 0.669
+- MIN-K: 0.602
+- REFERENCE: 0.491
+
+SHORT SENTENCE ROC AUC VALUES - short_member and short_nonmember
+- LOSS: 0.762
+- MIN-K: 0.615
+- REFERENCE: 0.499

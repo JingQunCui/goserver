@@ -4,3 +4,6 @@
 [submodule "The-Pile-FreeLaw"]
 	path = The-Pile-FreeLaw
 	url = https://github.com/thoppe/The-Pile-FreeLaw.git
+[submodule "gutenberg"]
+	path = gutenberg
+	url = https://github.com/pgcorpus/gutenberg.git
