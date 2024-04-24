@@ -12,7 +12,8 @@ start = sys.argv[3]
 found_start = False
 s = ''
 
-fileList = ["10039-0.txt", "23108-0.txt", '23727-0.txt',"10000-0.txt", "10140-0.txt", '31111-0.txt']
+fileList = ["10039-0.txt", "23108-0.txt", '23727-0.txt',"10000-0.txt", "10140-0.txt", '31111-0.txt', 
+            '30-0.txt', '29247-0.txt', '29261-0.txt']
 
 count = 0
 for f in fileList:

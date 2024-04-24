@@ -1,8 +1,8 @@
 {
-    "experiment_name": "sparse_word_gather",
+    "experiment_name": "dense_word_gather",
     "base_model": "EleutherAI/pythia-1.4b",
-    "dataset_member": "converted_sparse_2",
-    "dataset_nonmember": "converted_sparse_1",
+    "dataset_member": "dense_2",
+    "dataset_nonmember": "dense_1",
     "min_words": 100,
     "max_words": 200,
     "max_tokens": 512,

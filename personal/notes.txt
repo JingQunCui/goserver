@@ -118,10 +118,21 @@ HIGH TYPE TOKEN ROC AUC VALUES - dense_member and dense_nonmember
 - MIN-K: 0.619
 - REFERENCE: 0.491
 
-HIGH TYPE TOKEN ROC AUC VALUES - sparse_member and sparse_nonmember
+run2
+- LOSS: 
+- MIN-K: 
+- REFERENCE: 
+
+LOW TYPE TOKEN ROC AUC VALUES - sparse_member and sparse_nonmember
 - LOSS: 0.599
 - MIN-K: 0.617
 - REFERENCE: 0.656
+
+run2
+- LOSS: 
+- MIN-K: 
+- REFERENCE: 
+
 
 LONG SENTENCE ROC AUC VALUES - long_member and long_nonmember
 - LOSS: 0.669

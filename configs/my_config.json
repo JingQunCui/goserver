@@ -1,8 +1,8 @@
 {
-    "experiment_name": "short_sentence_test",
+    "experiment_name": "high_type_token_test",
     "base_model": "EleutherAI/pythia-1.4b",
-    "dataset_member": "short_member",
-    "dataset_nonmember": "short_nonmember",
+    "dataset_member": "dense_member",
+    "dataset_nonmember": "dense_nonmember",
     "min_words": 100,
     "max_words": 200,
     "max_tokens": 512,
