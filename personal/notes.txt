@@ -84,6 +84,13 @@ DENSE = HIGH TYPE TOKEN
 SPARSE = LOW TYPE TOKEN
 
 
+WORKING ON USING TEXTCOMPLEXITY
+- txtcomplexity seems to call cli.py
+- call run_cli.py with args to run it
+    - otherwise it calls from the installed bin file
+
+
+
 
 
 results notes
