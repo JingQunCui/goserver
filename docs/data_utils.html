@@ -50,6 +50,8 @@ class Data:
         self.config = config
         self.name = name
         self.presampled = presampled
+        #print(f&#39;\n\n\nKEY: {config.dataset_key}\n\n\n&#39;)
+        #print(f&#39;\n\n\nMAPPING: {self.name_key_mapping}\n\n\n&#39;)
         self.key = (
             config.dataset_key
             if config.dataset_key
@@ -508,6 +510,8 @@ def drop_last_word(text):
         self.config = config
         self.name = name
         self.presampled = presampled
+        #print(f&#39;\n\n\nKEY: {config.dataset_key}\n\n\n&#39;)
+        #print(f&#39;\n\n\nMAPPING: {self.name_key_mapping}\n\n\n&#39;)
         self.key = (
             config.dataset_key
             if config.dataset_key

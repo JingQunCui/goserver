@@ -77,6 +77,9 @@ def load_cached(cache_dir,
         Read from cache if available. Used for certain pile sources and xsum
         to ensure fairness in comparison across attacks.runs.
     &#34;&#34;&#34;
+    #print(f&#39;\nload from hf: {load_from_hf}\n&#39;)
+    #ensure it pulls from local cache rather than huggingface repo
+    load_from_hf = False
     if load_from_hf:
         print(&#34;Loading from HuggingFace!&#34;)
         data_split = data_split.replace(&#34;train&#34;, &#34;member&#34;)
@@ -121,7 +124,7 @@ def load_data(file_path):
         Load data from a given filepath (.jsonl)
     &#34;&#34;&#34;
     with open(file_path, &#39;r&#39;) as f:
-        data = [json.loads(line) for line in f.readlines()]
+        data = [json.loads(line, strict = False) for line in f.readlines()]
     return data
 
 
@@ -285,6 +288,9 @@ to ensure fairness in comparison across attacks.runs.</p></div>
         Read from cache if available. Used for certain pile sources and xsum
         to ensure fairness in comparison across attacks.runs.
     &#34;&#34;&#34;
+    #print(f&#39;\nload from hf: {load_from_hf}\n&#39;)
+    #ensure it pulls from local cache rather than huggingface repo
+    load_from_hf = False
     if load_from_hf:
         print(&#34;Loading from HuggingFace!&#34;)
         data_split = data_split.replace(&#34;train&#34;, &#34;member&#34;)
@@ -338,7 +344,7 @@ to ensure fairness in comparison across attacks.runs.</p></div>
         Load data from a given filepath (.jsonl)
     &#34;&#34;&#34;
     with open(file_path, &#39;r&#39;) as f:
-        data = [json.loads(line) for line in f.readlines()]
+        data = [json.loads(line, strict = False) for line in f.readlines()]
     return data</code></pre>
 </details>
 </dd>
