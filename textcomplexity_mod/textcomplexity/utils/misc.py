@@ -8,8 +8,8 @@ import statistics
 import numpy
 import scipy.special
 
-from textcomplexity.utils import windows
-
+from utils import windows
+import seaborn as sns
 
 def confidence_interval(results):
     return 1.96 * statistics.stdev(results) / math.sqrt(len(results))
@@ -42,6 +42,17 @@ def average_measure(measure, sentences):
     results = [measure(s) for s in sentences]
     return statistics.mean(results), statistics.stdev(results)
 
+def average_measure_2(name, measure, sentences):
+    """Calculate the measure for every sentence and return mean and
+    standard deviation.
+
+    """
+    results = [measure(s) for s in sentences]
+
+    plot = sns.displot(data = results, kde=True, bins = 30)
+    
+    plot.savefig(f'out_{name}.png')
+    return statistics.mean(results), statistics.stdev(results)
 
 def average_measure_and_length(measure, sentences):
     """Calculate the measure for every sentence and return mean and
@@ -74,3 +85,31 @@ def bootstrap(measure, tokens, window_size, strategy="spread", **kwargs):
     if len(results) == 1:
         return results[0], 0, results
     return statistics.mean(results), confidence_interval(results), results
+
+
+def bootstrap_2(name, measure, tokens, window_size, strategy="spread", **kwargs):
+    """Calculate bootstrap for surface-based measures as explained in
+    Evert et al. (2017).
+
+    kwargs are passed to measure
+
+    Evert, Stefan, Sebastian Wankerl, Elmar Nöth (2017). Reliable
+    measures of syntactic and lexical complexity: The case of Iris
+    Murdoch. In: Proceedings of the Corpus Linguistics 2017
+    Conference, Birmingham, UK.
+    http://purl.org/stefan.evert/PUB/EvertWankerlNoeth2017.pdf
+
+    """
+    results = []
+    for window in windows.disjoint_windows(tokens, window_size, strategy):
+        results.append(measure(window, **kwargs))
+    if len(results) == 1:
+        return results[0], 0, results
+    
+    plot = sns.displot(data = results, kde=True, bins = 30)
+    
+    plot.savefig(f'out_{name}.png')
+    return statistics.mean(results), confidence_interval(results), results
+
+    
+    

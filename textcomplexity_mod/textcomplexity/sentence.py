@@ -2,7 +2,7 @@
 
 import functools
 
-from textcomplexity.utils import misc
+from utils import misc
 
 
 # -----------------
@@ -14,7 +14,7 @@ def sentence_length_words(sentences, punctuation):
 
     """
     slw = functools.partial(_sentence_length_words, punctuation=punctuation)
-    return misc.average_measure(slw, sentences)
+    return misc.average_measure_2('sentence_length_words',slw, sentences)
 
 
 def _sentence_length_words(s, punctuation):
@@ -27,7 +27,7 @@ def sentence_length_tokens(sentences):
     returns the standard deviation.
 
     """
-    return misc.average_measure(_sentence_length_tokens, sentences)
+    return misc.average_measure_2('sentence_length_tokens',_sentence_length_tokens, sentences)
 
 
 def _sentence_length_tokens(s):
@@ -42,7 +42,7 @@ def sentence_length_characters(sentences):
     between all tokens.
 
     """
-    return misc.average_measure(_sentence_length_characters, sentences)
+    return misc.average_measure_2('sentence_length_characters', _sentence_length_characters, sentences)
 
 
 def _sentence_length_characters(s):

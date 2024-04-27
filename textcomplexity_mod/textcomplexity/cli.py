@@ -7,9 +7,9 @@ import itertools
 import json
 import os
 
-from textcomplexity import surface, sentence, pos, dependency, constituency
-from textcomplexity.utils.text import Text
-from textcomplexity.utils import conllu, custom_tsv, misc
+import surface, sentence, pos, dependency, constituency
+from utils.text import Text
+from utils import conllu, custom_tsv, misc
 
 Result = collections.namedtuple("Result", ["name", "value", "stdev", "length", "length_stdev"])
 
@@ -69,7 +69,16 @@ def surface_based(tokens, window_size, preset):
     for measure, name, lexical_core, core, extended_core in measures:
         if (preset == "lexical_core" and lexical_core) or (preset == "core" and core) or (preset == "extended_core" and extended_core) or (preset == "all"):
             name += " (disjoint windows)"
-            mean, stdev, _ = misc.bootstrap(measure, tokens, window_size, strategy="spread")
+
+            if name == "average token length (disjoint windows)":
+                mean, stdev, _ = misc.bootstrap_2('avg_token_length',measure, tokens, window_size, strategy="spread")
+            elif name == 'evenness (disjoint windows)':
+                mean, stdev, _ = misc.bootstrap_2('evenness',measure, tokens, window_size, strategy="spread")
+            elif name == 'type-token ratio (disjoint windows)':
+                mean, stdev, _ = misc.bootstrap_2('type_token',measure, tokens, window_size, strategy="spread")
+
+            else:
+                mean, stdev, _ = misc.bootstrap(measure, tokens, window_size, strategy="spread")
             results.append(Result(name, mean, stdev, None, None))
     if preset == "all":
         results.append(Result("log10 text length (characters)", surface.log_text_length_characters(text), None, None, None))

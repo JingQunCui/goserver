@@ -51,9 +51,9 @@ pip install textcomplexity
 ```
 
 ## Usage
-I made a subrepository of textcomplexity. I modified it to output graphs to show the distribution of some of the metrics. 
+I made a subrepository of Textcomplexity. I modified it to output graphs to show the distribution of some of the metrics. 
 
-The main program that generates the metrics is run_cli.py, located in textcomplexity/textcomplexity
+The main program that generates the metrics is run_cli.py, located in textcomplexity_mod/textcomplexity
 
 A sample run of the code would look like 
 ```
@@ -61,7 +61,7 @@ python3 run_cli.py --input-format conllu [file] --lang en --preset all
 ```
 These options would lead for all implemented text metrics to be computed using english (as opposed to the other implemented language for textcomplexity, german). Other options can be found in their main repository [here](https://github.com/tsproisl/textcomplexity)
 
-The graphs that resulted from running my modified version of Textcomplexity can be found in textcomplexity/textcomplexity/member_graphs and textcomplexity/textcomplexity/nonmember_graphs
+The graphs that resulted from running my modified version of Textcomplexity can be found in textcomplexity_mod/textcomplexity/member_graphs and textcomplexity_mod/textcomplexity/nonmember_graphs
 
 ## Conllu formatting
 
