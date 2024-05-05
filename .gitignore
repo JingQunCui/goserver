@@ -36,8 +36,8 @@ logs_cluster/*
 *.egg-info/
 
 # Images
-*.png
-*.pdf
+#*.png
+#*.pdf
 
 # Font files
 *.ttf
