@@ -9,17 +9,21 @@ directory = "/textcomplexity_mod/datasetcomp"
 dependents_per_word_values = []
 longest_shortest_path_stdev_values = []
 
-# Loop through each file's data
-for file_data in files_data.values():
-    # Extract values for 'dependents per word' and 'longest shortest path' with their respective standard deviations
-    dependents_per_word = file_data.get("dependents per word", {}).get("value")
-    longest_shortest_path_stdev = file_data.get("longest shortest path", {}).get("stdev")
+# Loop through each file in the directory
+for filename in os.listdir(directory):
+    if filename.endswith(".json"):  # Ensure we're reading a JSON file
+        with open(os.path.join(directory, filename), 'r') as f:
+            file_data = json.load(f)
 
-    # Check if values are present before appending
-    if dependents_per_word is not None:
-        dependents_per_word_values.append(dependents_per_word)
-    if longest_shortest_path_stdev is not None:
-        longest_shortest_path_stdev_values.append(longest_shortest_path_stdev)
+            # Extract values for 'dependents per word' and 'longest shortest path' with their respective standard deviations
+            dependents_per_word = file_data.get("dependents per word", {}).get("value")
+            longest_shortest_path_stdev = file_data.get("longest shortest path", {}).get("stdev")
+
+            # Check if values are present before appending
+            if dependents_per_word is not None:
+                dependents_per_word_values.append(dependents_per_word)
+            if longest_shortest_path_stdev is not None:
+                longest_shortest_path_stdev_values.append(longest_shortest_path_stdev)
 
 # Compute averages and standard deviations
 dependents_per_word_avg = np.mean(dependents_per_word_values)
