@@ -1,0 +1,161 @@
+{
+    "../../goserver/textcomplexity_mod/datasetconllu/data_695.txt.conllu": {
+        "log10 text length": {
+            "value": 4.08282126093933
+        },
+        "type-token ratio (disjoint windows)": {
+            "value": 0.19491666666666665,
+            "stdev": 0.02885693297646305
+        },
+        "Guiraud's R (disjoint windows)": {
+            "value": 6.163806205944866,
+            "stdev": 0.9125363449244532
+        },
+        "Herdan's C (disjoint windows)": {
+            "value": 0.7593380819962443,
+            "stdev": 0.019303334559806175
+        },
+        "Dugast's k (disjoint windows)": {
+            "value": 2.7140640762326114,
+            "stdev": 0.06899494194014162
+        },
+        "Maas' a² (disjoint windows)": {
+            "value": 0.034839380997761314,
+            "stdev": 0.002794443893885386
+        },
+        "Dugast's U (disjoint windows)": {
+            "value": 29.337052361231553,
+            "stdev": 2.78410095563848
+        },
+        "Tuldava's LN (disjoint windows)": {
+            "value": -0.14476043586668544,
+            "stdev": 9.491264973014995e-07
+        },
+        "Brunet's W (disjoint windows)": {
+            "value": 16.60876119421079,
+            "stdev": 0.9987423642759714
+        },
+        "CTTR (disjoint windows)": {
+            "value": 4.3584691661433395,
+            "stdev": 0.6452606375752672
+        },
+        "Summer's S (disjoint windows)": {
+            "value": 0.8570817541951298,
+            "stdev": 0.012906300755632061
+        },
+        "Sichel's S (disjoint windows)": {
+            "value": 0.0643317229583046,
+            "stdev": 0.03987258084513556
+        },
+        "Michéa's M (disjoint windows)": {
+            "value": 26.558615143889533,
+            "stdev": 10.773938929882405
+        },
+        "Honoré's H (disjoint windows)": {
+            "value": 849.9802949697937,
+            "stdev": 58.31188745257973
+        },
+        "entropy (disjoint windows)": {
+            "value": 6.962916662791268,
+            "stdev": 0.17048348951159703
+        },
+        "evenness (disjoint windows)": {
+            "value": 0.9202047093067564,
+            "stdev": 0.004837364129239115
+        },
+        "Jarvis's evenness (disjoint windows)": {
+            "value": 6.606950025455617,
+            "stdev": 0.5778607460847508
+        },
+        "Yule's K (disjoint windows)": {
+            "value": 124.96333333333332,
+            "stdev": 10.64401005082296
+        },
+        "Simpson's D (disjoint windows)": {
+            "value": 0.012508842175508843,
+            "stdev": 0.0010654664715538504
+        },
+        "Herdan's Vm (disjoint windows)": {
+            "value": 0.08985793486922755,
+            "stdev": 0.0028799775180578424
+        },
+        "HD-D (disjoint windows)": {
+            "value": 0.1059186441459273,
+            "stdev": 0.0034351975189230908
+        },
+        "average token length (disjoint windows)": {
+            "value": 4.875,
+            "stdev": 0.08288829094484686
+        },
+        "Orlov's Z (disjoint windows)": {
+            "value": 561.7481106872528,
+            "stdev": 414.2567813630115
+        },
+        "Gini-based dispersion (disjoint windows)": {
+            "value": 0.7509598209928572,
+            "stdev": 0.050751719996524
+        },
+        "evenness-based dispersion (disjoint windows)": {
+            "value": 0.9199024497873475,
+            "stdev": 0.028740735488850023
+        },
+        "log10 text length (characters)": {
+            "value": 4.852065019814858
+        },
+        "type-token ratio (moving windows)": {
+            "value": 0.18738470545847596
+        },
+        "MTLD": {
+            "value": 108.39639470744248
+        },
+        "lexical density": {
+            "value": 0.49483513759193454
+        },
+        "rarity": {
+            "value": 0.32531730126920505
+        },
+        "punctuation per token": {
+            "value": 0.09123212957606809
+        },
+        "average sentence length (words)": {
+            "value": 30.046448087431695,
+            "stdev": 19.793191743732162
+        },
+        "punctuation per sentence": {
+            "value": 3.0163934426229506,
+            "stdev": 2.274276425256488
+        },
+        "average sentence length (tokens)": {
+            "value": 33.06284153005465,
+            "stdev": 21.609203686355038
+        },
+        "average sentence length (characters)": {
+            "value": 193.35245901639345,
+            "stdev": 124.74438008904323
+        },
+        "average dependency distance": {
+            "value": 3.3370867258567434,
+            "stdev": 0.8217271630092988
+        },
+        "closeness centrality": {
+            "value": 0.373039014169717,
+            "stdev": 0.10989115982654686
+        },
+        "outdegree centralization": {
+            "value": 0.1969238359735572,
+            "stdev": 0.10499857245655231
+        },
+        "closeness centralization": {
+            "value": 0.3370085447625577,
+            "stdev": 0.10623812151040336
+        },
+        "longest shortest path": {
+            "value": 5.478142076502732,
+            "stdev": 2.2399395396757478
+        },
+        "dependents per word": {
+            "value": 0.9571062888424527,
+            "stdev": 0.05839845903119249
+        }
+    }
+}
