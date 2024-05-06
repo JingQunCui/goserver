@@ -1,7 +1,9 @@
+import json
+import os
 import numpy as np
 
-# Assuming you have a list of dictionaries called 'files_data' containing the data for each file
-# For demonstration purposes, let's assume 'files_data' contains the data for all 100 files
+# Specify the directory containing the JSON files
+directory = "/textcomplexity_mod/datasetcomp"
 
 # Initialize empty lists to store values for calculations
 dependents_per_word_values = []
