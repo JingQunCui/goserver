@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 # Specify the directory containing the JSON files
-directory = "/textcomplexity_mod/datasetcomp"
+directory = "./textcomplexity_mod/datasetcomp"
 
 # Initialize empty lists to store values for calculations
 dependents_per_word_values = []
