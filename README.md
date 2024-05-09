@@ -1,4 +1,4 @@
-# MIMIR
+# MIMIR -altered
 
 The mimir section of this paper is a modified version of [this repository](https://github.com/iamgroot42/mimir). All credit goes to them for the attacks, model, and training data. 
 
